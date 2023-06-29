@@ -2,8 +2,8 @@ const Renderer = function () {
     function _renderNewCommentInput() {
         const newCommentInputContainer = $("<div class='new-comment-input'></div>") 
 
-        const newCommentInput = $("<input type='text' placeholder='Got something to say ?'>")
-        const newCommentButton = $("<button>Comment</button>")
+        const newCommentInput = $("<input type='text' placeholder='Got something to say ?' class='new-comment-input'>")
+        const newCommentButton = $("<button class='add-comment-button'>Comment</button>")
 
         newCommentInputContainer.append(newCommentInput)
         newCommentInputContainer.append(newCommentButton)
@@ -30,6 +30,7 @@ const Renderer = function () {
 
     function renderPosts(posts) {
         const postContainer = $("#posts")
+        postContainer.empty()
 
         posts.forEach(post => {
             const newPost = $(`<div class='post' data-id=${post.id}></div>`)

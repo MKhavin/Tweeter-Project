@@ -28,7 +28,7 @@ const Tweeter = function () {
 
     const _getPostNextId = function () {
         const lastPost = _posts[_posts.length - 1]
-        const lastId = 1 + Number(lastPost.id.match(/(\d+)/)[0]);
+        const lastId = lastPost === undefined ? 1 : 1 + Number(lastPost.id.match(/(\d+)/)[0]);
 
         if (lastId) {
             return `p${lastId}`
@@ -65,8 +65,6 @@ const Tweeter = function () {
         }
 
         _posts.push(newPost)
-
-        console.log(`Post ${newPost}`)
     }
 
     const removePost = function (postId) {
